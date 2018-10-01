@@ -97,11 +97,10 @@ button:hover {
 
 img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   background: #21ffff;
-  padding: 3rem;
-  margin-right: 2rem;
+  margin: 3rem;
 }
 
 .response-data {
