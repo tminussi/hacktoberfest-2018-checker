@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "i18next": "^11.9.0",
     "request": "^2.88.0",
     "serverless": "^1.32.0",
     "serverless-offline": "^3.25.17"
