@@ -8,9 +8,13 @@
     "serverless": "^1.32.0",
     "serverless-offline": "^3.25.17"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "jest-chain": "^1.0.3",
+    "jest-extended": "^0.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "local": "serverless offline start"
   },
   "repository": {
@@ -19,5 +23,8 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/tminussi/inked-album#readme"
+  "homepage": "https://bitbucket.org/tminussi/inked-album#readme",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./testSetup.js"
+  }
 }
