@@ -52,6 +52,7 @@
         if (prPercentage > 100) {
           prPercentage = 100;
         }
+        responseData.prPercentage = prPercentage;
         loaderWrapperEl.style.visibility = 'hidden';
         $("#response").html(Mustache.render(template, responseData));
         counter = 0;
