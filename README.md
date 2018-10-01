@@ -16,7 +16,16 @@ Feel free to create a PR and help improving this project.
 
 If you use VisualCode, just open it and hit F5. It will start debugging at port 3000. 
 
-If you don't, you'll have to install serverless and serverless offline globally, by running **npm install serverless -g** and **npm install serverless-offline -g**. Once you're done, run **serverless offline start** from the command line and it will start a server at port 3000.
+If you are someone who prefers the cli just run
+```
+$: npm run local
+$: npm run local -- --port 5000 # optionally on a diffrent port
+
+ ```
+This also by default starts the server on port 3000, but if you prefer
+to change it you can, by passing --port 3001 and also remember to update
+the port address index.js in frontend client folder.
+
 
 
 ### Frontend
