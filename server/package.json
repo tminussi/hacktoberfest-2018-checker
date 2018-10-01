@@ -5,8 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "request": "^2.88.0",
-    "serverless": "^1.30.3",
-    "serverless-offline": "^3.25.11"
+    "serverless": "^1.32.0",
+    "serverless-offline": "^3.25.17"
   },
   "devDependencies": {},
   "scripts": {

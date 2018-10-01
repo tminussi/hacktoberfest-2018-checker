@@ -21,8 +21,10 @@
     <div class="headline"></div>
     <div class="container">
       <div class="element-group">
-        <label for="username">Username:</label>
-        <input id="username" type="text" />
+        <div class="element-userinput">
+          <label for="username">Username</label>
+          <input id="username" type="text" />
+        </div>
         <button id="do-req" type="button">Submit</button>
       </div>
     </div>
@@ -35,7 +37,7 @@
     </div>
 
     <div class="center">
-      <div style="width: 400px; margin: 50px auto">
+      <div>
       {{#prCount}}
         <div class="progress">
           <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="max-width: {{prPercentage}}%">
@@ -43,7 +45,7 @@
           </div>
         </div>
       {{/prCount}}
-      <p><b>{{message}}</b></p>
+      <p class="progress-text">{{message}}</p>
     </div>
     {{#prCount}}
     <div>
