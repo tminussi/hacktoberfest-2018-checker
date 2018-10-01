@@ -22,8 +22,8 @@ const fetchPullRequests = (username) => {
                 });
             }
             const validPullRequests = jsonBody.items
-            .filter(item => new Date(item.created_at).getTime() > new Date('2017-10-01T00:00:00Z').getTime())
-            .filter(item => new Date(item.created_at).getTime() < new Date('2017-11-01T00:00:00Z').getTime())
+            .filter(item => new Date(item.created_at).getTime() > new Date('2018-10-01T00:00:00Z').getTime())
+            .filter(item => new Date(item.created_at).getTime() < new Date('2018-11-01T00:00:00Z').getTime())
             if (validPullRequests.length) {
                 return resolve({
                     valid_pull_requests_amount: validPullRequests.length,
