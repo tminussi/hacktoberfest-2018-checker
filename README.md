@@ -14,3 +14,7 @@ Feel free to create a PR and help improving this project.
 
 If you use VisualCode, just open it and hit F5. It will start debugging at port 3000. If you don't, run **serverless offline start** from the command line and it will start a server at port 3000.
 
+## Contributing
+
+Take a look into the [CONTRIBUTING.md](https://github.com/tminussi/hacktoberfest-2018-checker/blob/master/CONTRIBUTING.md) file for any questions that may arise. You're also free to update that file.
+
