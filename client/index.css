@@ -17,6 +17,7 @@ a {
   background-position: center;
   background-size: 396px, 396px, auto;
   padding-top:100px;
+  margin-bottom:5rem;
 }
 
 .capitalize {
@@ -33,19 +34,24 @@ a {
   padding: 10px;
 }
 
-.container div {
-  margin: auto;
+.element-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:2rem;
 }
 
-.element-group {
-  padding-top: 100px;
-  display: table;
+.element-userinput {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
   font-size: 1em;
   letter-spacing: 1px;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
+  padding: 0 0.6rem 0;
+  font-weight: 900;
 }
 
 input[type="text"] {
@@ -55,6 +61,14 @@ input[type="text"] {
   line-height: 1;
   margin-left: 10px;
   margin-right: 10px;
+  border: none;
+}
+
+input[type="text"]:focus {
+  border-color: #21ffff;
+  box-shadow: 0 1px 1px #21ffff inset,
+  0 0 8px #21ffff;
+  outline: 0 none;
 }
 
 button {
@@ -64,7 +78,7 @@ button {
   color: #411e2f;
   font-size: 1em;
   line-height: 1;
-  padding: 1rem 1.5rem;
+  padding: 0.86rem 1.5rem
 }
 
 button:hover {
@@ -72,13 +86,22 @@ button:hover {
   color: #411e2f;
 }
 
+#do-req {
+  align-self: flex-end;
+}
+
 .response {
-  padding-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 img {
   border-radius: 50%;
   width: 150px;
+  height: 150px;
+  background: #21ffff;
+  padding: 3rem;
+  margin-right: 2rem;
 }
 
 .response-data {
@@ -153,13 +176,19 @@ img {
   animation: progress 3s ease-in-out forwards;
   line-height: 25px;
   background-color: #CF873D;
+  border-radius: 3px;
+  margin-top: 4rem;
 }
 .progress {
-  width: 412px;
   margin: 20px auto;
   background-color: white;
   border-radius: 3px;
   height: 25px;
+}
+
+.progress-text {
+  font-style: italic;
+  margin-bottom:2rem;
 }
 
 @keyframes progress {
@@ -179,7 +208,6 @@ img {
   }
 }
 .table-wrapper {
-  max-width: 800px;
   margin: auto;
   border: none;
 }
