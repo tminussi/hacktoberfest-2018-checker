@@ -27,6 +27,13 @@
   $.when($.ready).then(() => {
     const loaderWrapperEl = document.getElementById('loader-wrapper');
     loaderWrapperEl.style.visibility = 'hidden';
+    //Keypress event for the username field
+    $("#username").keypress((e) => {
+        //check if the user presses enter
+        if (e.which == 13) {
+            $('#do-req').click();
+        }
+    });
     $("#do-req").click(() => {
       let username = $("#username").val();
 
