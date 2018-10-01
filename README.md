@@ -14,7 +14,9 @@ Feel free to create a PR and help improving this project.
 
 - Navigate to the **server** directory of the project and run **npm install**
 
-If you use VisualCode, just open it and hit F5. It will start debugging at port 3000. If you don't, run **serverless offline start** from the command line and it will start a server at port 3000.
+If you use VisualCode, just open it and hit F5. It will start debugging at port 3000. 
+
+If you don't, you'll have to install serverless and serverless offline globally, by running **npm install serverless -g** and **npm install serverless-offline -g**. Once you're done, run **serverless offline start** from the command line and it will start a server at port 3000.
 
 
 ### Frontend
