@@ -10,9 +10,17 @@ Feel free to create a PR and help improving this project.
 
 ## How to run
 
-- Navigate to the root of the project and run **npm install**
+### Backend
+
+- Navigate to the **server** directory of the project and run **npm install**
 
 If you use VisualCode, just open it and hit F5. It will start debugging at port 3000. If you don't, run **serverless offline start** from the command line and it will start a server at port 3000.
+
+
+### Frontend
+
+- Navigate to the **client** directory of the project and open the index.html file
+
 
 ## Contributing
 
