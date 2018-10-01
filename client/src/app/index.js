@@ -27,6 +27,13 @@
   $.when($.ready).then(() => {
     const loaderWrapperEl = document.getElementById('loader-wrapper');
     loaderWrapperEl.style.visibility = 'hidden';
+    //Keypress event for the username field
+    $("#username").keypress((e) => {
+        //check if the user presses enter
+        if (e.which == 13) {
+            $('#do-req').click();
+        }
+    });
     $("#do-req").click(() => {
       let username = $("#username").val();
 
@@ -52,6 +59,7 @@
         if (prPercentage > 100) {
           prPercentage = 100;
         }
+        responseData.prPercentage = prPercentage;
         loaderWrapperEl.style.visibility = 'hidden';
         $("#response").html(Mustache.render(template, responseData));
         counter = 0;

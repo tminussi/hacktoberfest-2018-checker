@@ -29,7 +29,7 @@ const fetchPullRequests = (username) => {
                     valid_pull_requests_amount: validPullRequests.length,
                     avatar: validPullRequests[0].user.avatar_url,
                     pull_requests: validPullRequests.map(item => {
-                        return { 
+                        return {
                             url: item.html_url,
                             state: item.state
                         }
@@ -42,7 +42,7 @@ const fetchPullRequests = (username) => {
                 avatar: jsonBody.items[0].user.avatar_url,
                 message: createMessage(0)
             });
-            
+
         });
     });
 }
@@ -60,5 +60,6 @@ const createMessage = (quantity) => {
 }
 
 module.exports = {
-    fetchPullRequests: fetchPullRequests
+    fetchPullRequests: fetchPullRequests,
+    createMessage
 }
