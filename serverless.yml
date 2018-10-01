@@ -1,0 +1,22 @@
+service: hacktoberfest2018checker
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  users:
+    handler: handler.index
+    timeout: 3
+
+    events:
+      - http: 
+          path: /
+          method: GET
+          cors: true
+          request:
+            parameters:
+              querystrings:
+                username: true

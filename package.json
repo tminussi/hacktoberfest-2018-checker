@@ -1,0 +1,22 @@
+{
+  "name": "hacktoberfest-2018-checker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.88.0",
+    "serverless": "^1.30.3",
+    "serverless-offline": "^3.25.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/tminussi/inked-album.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/tminussi/inked-album#readme"
+}
