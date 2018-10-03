@@ -43,6 +43,12 @@ npm test -- --coverage
 
 _Currently, `coverage` is only for `server` folder._
 
+### Frontend
+
+- Navigate to the **client** directory of the project and and run **npm install** and **npm start**
+
+You can see the page in **http://localhost:8080/**
+
 ## Contributing
 
 Take a look at the [CONTRIBUTING.md](https://github.com/tminussi/hacktoberfest-2018-checker/blob/master/CONTRIBUTING.md) file for any questions that may arise. You're also free to update that file as needed!
