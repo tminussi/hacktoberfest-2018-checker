@@ -151,7 +151,7 @@ const LOCALES_OPTIONS = [{ code: "en", label: "English" }].sort(
               const responseData = {
                 userPhoto:
                   "https://image.ibb.co/grT6be/if_icon_7_sad_face_315580_6.png",
-                message: $.t("request-error")
+                message: $.t("Oops, something went wrong!")
               };
               $("#response").html(Mustache.render(template, responseData));
               $(".response").localize();

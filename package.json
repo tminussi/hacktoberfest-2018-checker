@@ -1,0 +1,23 @@
+{
+  "name": "hacktoberfest-2018-checker",
+  "version": "1.0.0",
+  "description": "An application that checks the progress of a username in Hacktoberfest-2018.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tminussi/hacktoberfest-2018-checker.git"
+  },
+  "author": "Thales Sousa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tminussi/hacktoberfest-2018-checker/issues"
+  },
+  "homepage": "https://github.com/tminussi/hacktoberfest-2018-checker#readme",
+  "devDependencies": {
+    "cypress": "^3.1.0"
+  }
+}
