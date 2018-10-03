@@ -21,7 +21,7 @@ else {
 
 const server = express();
 const compiler = webpack(options);
-const port = Number.parseInt(process.env.PORT) || 3000;
+const port = Number.parseInt(process.env.PORT) || 8080;
 
 server.use(webpackDevMiddleware(compiler, {
     publicPath: '/',
