@@ -12,8 +12,9 @@ Feel free to create a pull request to help improve this project.
 
 ## How to run
 
-1. Navigate to the `server` directory of the project and run `npm install` in your command prompt
-2. Navigate to the `client` directory of the project and open the `index.html` file in your web browser
+1. Navigate to the **server** directory of the project and run **npm install** in your command prompt
+2. After node packages is downloaded, then run command **npm run local** 
+3. Navigate to the **client** directory of the project and open the **index.html** file in your web browser
 
 ## Other features
 
@@ -22,7 +23,6 @@ Feel free to create a pull request to help improve this project.
 - If you are someone who prefers the CLI, run:
 
 ```
-$: npm run local
 $: npm run local -- --port 5000 # optionally on a diffrent port
 ```
 
