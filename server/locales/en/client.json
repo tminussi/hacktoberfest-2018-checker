@@ -1,0 +1,17 @@
+{
+  "alert_messag": "Type something !",
+  "request_error": "Oops, something went wrong!",
+  "label": {
+    "username": "Username"
+  },
+  "button": {
+    "submit-req": "Submit"
+  },
+  "th": {
+    "status": "Status",
+    "link": "Link"
+  },
+  "img": {
+    "profile-alt": "User photo"
+  }
+}
