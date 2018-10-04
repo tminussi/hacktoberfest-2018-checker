@@ -1,3 +1,8 @@
+import i18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import i18nextXHRBackend from "i18next-xhr-backend";
+import i18nextChainedBackend from "i18next-chained-backend";
+import i18nextLocalStorageBackend from "i18next-localstorage-backend";
+
 ($ =>
   $.when($.ready).then(() => {
     // Initialize i18next Object
