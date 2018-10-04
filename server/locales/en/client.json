@@ -11,6 +11,10 @@
     "status": "Status",
     "link": "Link"
   },
+  "pr_state": {
+    "open": "Open",
+    "closed": "Closed"
+  },
   "img": {
     "profile-alt": "User photo"
   }

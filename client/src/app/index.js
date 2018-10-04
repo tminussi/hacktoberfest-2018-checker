@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 
 ($ => {
   let counter = 0;
@@ -12,8 +12,8 @@ import './index.css';
     return true;
   };
 
-  const retrieveEndpoint = username => ({
-    url: `http://localhost:3000?username=${username}`,
+  const retrieveEndpoint = (username, lng) => ({
+    url: `http://localhost:3000?username=${username}&lng=${lng}`,
     crossDomain: true
   });
 
@@ -37,18 +37,17 @@ import './index.css';
     });
     $("#do-req").click(() => {
       let username = $("#username").val();
-
       if (!isValid(username)) {
         return;
       }
 
+      const currentLng = $.i18n.language;
       $("#response").html("");
-      const endpoint = retrieveEndpoint(username);
+      const endpoint = retrieveEndpoint(username, currentLng);
       loaderWrapperEl.style.visibility = "visible";
       $.get(endpoint, response => {
         let index = 1;
         const template = $("#template").html();
-
         const responseData = {
           userPhoto: response.avatar,
           prCount: response.valid_pull_requests_amount + "/" + 5,
@@ -56,6 +55,10 @@ import './index.css';
           message: response.message,
           index: function() {
             return index++;
+          },
+          prState: function() {
+            const key = `pr_state.${this.state.toLowerCase()}`;
+            return $.t(key);
           }
         };
         prPercentage = (response.valid_pull_requests_amount / 5) * 100;

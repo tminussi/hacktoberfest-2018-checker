@@ -1,18 +1,18 @@
 "use strict";
+const i18n = require("./locales");
+
 const githubService = require("./service/github-service");
 module.exports.index = async (event, context, callback) => {
   try {
+    const { lng, username } = event.queryStringParameters;
+    i18n.changeLanguage(lng);
     return callback(null, {
       statusCode: 200,
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true
       },
-      body: JSON.stringify(
-        await githubService.fetchPullRequests(
-          event.queryStringParameters.username
-        )
-      )
+      body: JSON.stringify(await githubService.fetchPullRequests(username))
     });
   } catch (e) {
     return callback(null, {
