@@ -12,17 +12,17 @@ Feel free to create a pull request to help improve this project.
 
 ## How to run
 
-1. Navigate to the `server` directory of the project and run `npm install` in your command prompt
-2. Navigate to the `client` directory of the project and open the `index.html` file in your web browser
+1. Navigate to the **server** directory of the project and run **npm install** in your command prompt
+2. After node packages is downloaded, then run command **npm run local** 
+3. Navigate to the **client** directory of the project and open the **index.html** file in your web browser
 
 ## Other features
 
-- If you use Visual Stuido Code, just open the directory and hit F5. VSC will start debugging at port 3000.
+- If you use Visual Studio Code, just open the directory and hit F5. VSC will start debugging at port 3000.
 
 - If you are someone who prefers the CLI, run:
 
 ```
-$: npm run local
 $: npm run local -- --port 5000 # optionally on a diffrent port
 ```
 
@@ -42,6 +42,12 @@ npm test -- --coverage
 ```
 
 _Currently, `coverage` is only for `server` folder._
+
+### Frontend
+
+- Navigate to the **client** directory of the project and and run **npm install** and **npm start**
+
+You can see the page in **http://localhost:8080/**
 
 ## Contributing
 
