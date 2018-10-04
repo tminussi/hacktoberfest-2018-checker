@@ -18,7 +18,7 @@ Feel free to create a pull request to help improve this project.
 
 ## Other features
 
-- If you use Visual Stuido Code, just open the directory and hit F5. VSC will start debugging at port 3000.
+- If you use Visual Studio Code, just open the directory and hit F5. VSC will start debugging at port 3000.
 
 - If you are someone who prefers the CLI, run:
 
