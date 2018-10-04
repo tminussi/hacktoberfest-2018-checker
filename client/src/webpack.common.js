@@ -1,10 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, "app", "index")
-    //path.resolve(__dirname, "app", "i18n")
-  ],
+  entry: [path.resolve(__dirname, "app", "index")],
   module: {
     rules: [
       {
