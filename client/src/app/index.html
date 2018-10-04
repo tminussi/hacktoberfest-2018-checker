@@ -25,7 +25,14 @@
       <div></div>
     </div>
   </div>
-  <div class="headline"></div>
+  <header class="header">
+    <nav class="top-nav">
+      <div id="language-selector" class="language-selector"></div>
+    </nav>
+  </header>
+
+  <div class="headline">
+  </div>
   <div class="container">
     <div class="element-group">
       <div class="element-userinput">
@@ -37,6 +44,20 @@
   </div>
   <div id="response" class="response"></div>
 </body>
+
+<script id="selector-template" type="x-tmpl-mustache">
+    <div class="select">
+        <select class="select-text" id="locales" required>
+          <option value="" disabled selected></option>
+          {{#languageOpts}}
+            <option value="{{code}}">{{label}}</option>
+          {{/languageOpts}}
+        </select>
+        <span class="select-highlight"></span>
+        <span class="select-bar"></span>
+        <label class="select-label">Change language</label>
+      </div>
+</script>
 
 <script id="template" type="x-tmpl-mustache">
     <div class="center">

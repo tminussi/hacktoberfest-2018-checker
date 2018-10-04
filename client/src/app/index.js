@@ -1,6 +1,48 @@
 import "./index.css";
 
+import i18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
+import i18nextXHRBackend from "i18next-xhr-backend";
+import i18nextChainedBackend from "i18next-chained-backend";
+import i18nextLocalStorageBackend from "i18next-localstorage-backend";
+
+/** You need to add your language code and label here for the selector to work*/
+const LOCALES_OPTIONS = [{ code: "en", label: "English" }];
+
 ($ => {
+  i18next
+    .use(i18nextChainedBackend)
+    .use(i18nextBrowserLanguageDetector)
+    .init({
+      fallbackLng: ["en"],
+      ns: ["common"],
+      defaultNS: "common",
+      initImmediate: false,
+      whitelist: ["en", "fr"],
+      nonExplicitWhitelist: true,
+      detection: {
+        order: ["querystring", "localStorage", "navigator"],
+        lookupQuerystring: "lng",
+        lookupLocalStorage: "i18nextLng",
+        caches: ["localStorage"]
+      },
+      backend: {
+        backends: [i18nextLocalStorageBackend, i18nextXHRBackend],
+        backendOptions: [
+          {
+            prefix: "i18next_",
+            expirationTime: 7 * 24 * 60 * 60 * 1000
+          },
+          {
+            loadPath: "http://localhost:3000/locale/{{lng}}",
+            crossDomain: true,
+            parse: data => {
+              return JSON.parse(data);
+            }
+          }
+        ]
+      }
+    });
+
   let counter = 0;
   let prPercentage = 0;
   let intervalId;
@@ -10,6 +52,10 @@ import "./index.css";
       return false;
     }
     return true;
+  };
+
+  const generateLanguagesList = function() {
+    console.log($.i18n.languages);
   };
 
   const retrieveEndpoint = (username, lng) => ({
@@ -25,9 +71,32 @@ import "./index.css";
     counter++;
   };
 
+  function selectLocale() {
+    $("#locales option:selected").each(function() {
+      const newLng = $(this).val();
+      if (newLng) {
+        console.log(newLng);
+        $.i18n.changeLanguage($(this).val());
+        location.reload();
+      }
+    });
+  }
+
   $.when($.ready).then(() => {
+    jqueryI18next.init(i18next, $);
+    $(".container").localize();
     const loaderWrapperEl = document.getElementById("loader-wrapper");
     loaderWrapperEl.style.visibility = "hidden";
+
+    const languageSelect = $("#selector-template").html();
+    $("#language-selector").html(
+      Mustache.render(languageSelect, {
+        languageOpts: LOCALES_OPTIONS
+      })
+    );
+
+    $("#locales").change(selectLocale);
+
     //Keypress event for the username field
     $("#username").keypress(e => {
       //check if the user presses enter

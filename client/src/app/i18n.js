@@ -14,6 +14,7 @@ import i18nextLocalStorageBackend from "i18next-localstorage-backend";
           fallbackLng: "en",
           ns: ["common"],
           defaultNS: "common",
+          initImmediate: false,
           detection: {
             order: ["querystring", "localStorage", "navigator"],
             lookupQuerystring: "lng",
@@ -38,7 +39,7 @@ import i18nextLocalStorageBackend from "i18next-localstorage-backend";
           }
         },
         function(err, t) {
-          jqueryI18next.init(i18next, $);
+          //jqueryI18next.init(i18next, $);
           // Get elements to translate
           $(".container").localize();
         }
