@@ -96,6 +96,7 @@ const LOCALES_OPTIONS = [{ code: "en", label: "English" }];
     );
 
     $("#locales").change(selectLocale);
+    $("#language-selector").localize();
 
     //Keypress event for the username field
     $("#username").keypress(e => {

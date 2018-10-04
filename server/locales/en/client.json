@@ -1,5 +1,5 @@
 {
-  "alert_messag": "Type something !",
+  "alert_message": "Type something !",
   "request_error": "Oops, something went wrong!",
   "label": {
     "username": "Username"
@@ -19,6 +19,6 @@
     "profile-alt": "User photo"
   },
   "lng_select": {
-    "placeholder": "Select"
+    "label": "Change language"
   }
 }

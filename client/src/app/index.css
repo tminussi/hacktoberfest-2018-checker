@@ -267,9 +267,6 @@ img {
 
 /** SELECT STYLING **/
 .language-selector {
-  /*position: absolute;
-  top: 5%;
-  left: 90%;*/
   width: 150px;
 }
 .select {
