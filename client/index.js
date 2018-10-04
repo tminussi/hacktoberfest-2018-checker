@@ -1,5 +1,3 @@
-import './index.css';
-
 ($ => {
     let counter = 0;
     let prPercentage = 0;

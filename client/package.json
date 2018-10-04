@@ -4,26 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development node script/start.js",
-    "start:prod": "cross-env NODE_ENV=production node script/start.js",
-    "build:dev": "cross-env NODE_ENV=development parallel-webpack --config src/webpack.development.js",
-    "build:prod": "cross-env NODE_ENV=production parallel-webpack --config src/webpack.production.js"
+    "start": "webpack-dev-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
-    "express": "^4.16.3",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.3",
-    "parallel-webpack": "^2.3.0",
-    "style-loader": "^0.23.0",
     "webpack": "^4.20.2",
-    "webpack-dev-middleware": "^3.4.0",
-    "webpack-hot-middleware": "^2.24.2",
-    "webpack-merge": "^4.1.4"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   }
 }
