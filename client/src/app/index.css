@@ -286,6 +286,10 @@ img {
   border: none;
   color: #000;
   border-bottom: 2px solid #fff;
+  /*Trick to remove default caret from Firefox*/
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
 }
 
 /* Remove focus */
