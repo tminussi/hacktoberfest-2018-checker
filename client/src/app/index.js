@@ -6,10 +6,9 @@ import i18nextChainedBackend from "i18next-chained-backend";
 import i18nextLocalStorageBackend from "i18next-localstorage-backend";
 
 /** You need to add your language code and label here for the selector to work*/
-const LOCALES_OPTIONS = [
-  { code: "en", label: "English" },
-  { code: "an", label: "Anglais" }
-].sort((localeA, localeB) => localeA.label.localeCompare(localeB.label));
+const LOCALES_OPTIONS = [{ code: "en", label: "English" }].sort(
+  (localeA, localeB) => localeA.label.localeCompare(localeB.label)
+);
 
 ($ => {
   i18next
