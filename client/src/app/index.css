@@ -1,9 +1,10 @@
 body {
-  background-image: url("./img/computer-1.png"), url("./img/computer-2.png"), url("./img/bg-noise.png");
+  background-image: url("./img/computer-1.png"), url("./img/computer-2.png"),
+    url("./img/bg-noise.png");
   background-position: left 0 top 140px, right 0 top 350px, center;
   background-repeat: no-repeat, no-repeat, repeat;
   background-size: 396px, 396px, auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #fff;
   margin: 0;
 }
@@ -17,8 +18,8 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 396px, 396px, auto;
-  padding-top:100px;
-  margin-bottom:5rem;
+  padding-top: 100px;
+  margin-bottom: 5rem;
 }
 
 .capitalize {
@@ -39,7 +40,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 }
 
 .element-userinput {
@@ -67,13 +68,12 @@ input[type="text"] {
 
 input[type="text"]:focus {
   border-color: #21ffff;
-  box-shadow: 0 1px 1px #21ffff inset,
-  0 0 8px #21ffff;
+  box-shadow: 0 1px 1px #21ffff inset, 0 0 8px #21ffff;
   outline: 0 none;
 }
 
 button {
-  background-color: #CF873D;
+  background-color: #cf873d;
   border: 0;
   border-radius: 3px;
   color: #411e2f;
@@ -111,7 +111,7 @@ img {
 .response-data {
   width: 50%;
   padding: 1em;
-  background-color: #CF873D;
+  background-color: #cf873d;
   color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -138,7 +138,7 @@ img {
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 .lds-ring {
   display: inline-block;
@@ -179,7 +179,7 @@ img {
   width: 0;
   animation: progress 3s ease-in-out forwards;
   line-height: 25px;
-  background-color: #CF873D;
+  background-color: #cf873d;
   border-radius: 3px;
   margin-top: 4rem;
 }
@@ -192,7 +192,7 @@ img {
 
 .progress-text {
   font-style: italic;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 }
 
 @keyframes progress {
@@ -203,7 +203,7 @@ img {
     width: 100%;
   }
 }
-@keyframes show  {
+@keyframes show {
   from {
     opacity: 0;
   }
@@ -217,8 +217,8 @@ img {
 }
 .table {
   color: #fff;
-  background-color: #CF873D;
-  text-align:left;
+  background-color: #cf873d;
+  text-align: left;
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
@@ -230,14 +230,156 @@ img {
   background: rgba(0, 0, 0, 0.08);
 }
 
-.table td, .table th, .table thead th {
-  border-color: #CF873D;
+.table td,
+.table th,
+.table thead th {
+  border-color: #cf873d;
 }
-.table td, .table th {
-  padding: .75rem;
+.table td,
+.table th {
+  padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
 .table th {
   border-top: none;
+}
+
+.body {
+  position: relative;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.header {
+  display: block;
+  margin: 1.5rem 3rem 1.5rem;
+}
+
+.top-nav {
+  display: flex;
+  box-orient: horizontal;
+  box-decoration-break: normal;
+  flex-direction: row-reverse;
+  align-items: center;
+  box-pack: justify;
+  justify-content: space-between;
+}
+
+/** SELECT STYLING **/
+.language-selector {
+  width: 150px;
+}
+.select {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  position: relative;
+  width: 100%;
+}
+
+.select-text {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 10px 10px 10px 0;
+  font-size: 12px;
+  border-radius: 0;
+  border: none;
+  color: #000;
+  border-bottom: 2px solid #fff;
+  /*Trick to remove default caret from Firefox*/
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+}
+
+/* Remove focus */
+.select-text:focus {
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
+
+/* Use custom arrow */
+.select .select-text {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+}
+
+.select:after {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  pointer-events: none;
+}
+
+/* LABEL ======================================= */
+.select-label {
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+.select-text:focus ~ .select-label,
+.select-text:valid ~ .select-label {
+  color: #fff;
+  top: -20px;
+  transition: 0.2s ease all;
+  font-size: 12px;
+}
+
+/* BOTTOM BARS ================================= */
+.select-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.select-bar:before,
+.select-bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #cf873d;
+  transition: 0.2s ease all;
+}
+
+.select-bar:before {
+  left: 50%;
+}
+
+.select-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.select-text:focus ~ .select-bar:before,
+.select-text:focus ~ .select-bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.select-highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
 }

@@ -13,7 +13,7 @@ Feel free to create a pull request to help improve this project.
 ## How to run
 
 1. Navigate to the **server** directory of the project and run **npm install** in your command prompt
-2. After node packages is downloaded, then run command **npm run local** 
+2. After node packages is downloaded, then run command **npm run local**
 3. Navigate to the **client** directory of the project and open the **index.html** file in your web browser
 
 ## Other features
@@ -30,7 +30,6 @@ By default, this starts the server on port 3000. If you prefer
 to change it you can, by passing `--port 3001` and also remember to update
 the port address in `index.js` which is in the frontend `client` folder.
 
-
 ## Backend Testing
 
 For unit tests, watch, and coverage, run the following:
@@ -45,8 +44,9 @@ _Currently, `coverage` is only for `server` folder._
 
 ### Frontend
 
-- Navigate to the **client** directory of the project and and run **npm install** and **npm start**
+- Navigate to the **client** directory of the project and and run **npm install** and **npm run start:dev**
 
+If you want to build a static version of the client, you can run **npm run build:prod**
 You can see the page in **http://localhost:8080/**
 
 ## Contributing
