@@ -1,9 +1,12 @@
 import "./index.css";
-
+import jQuery from "jquery";
+import i18next from "i18next";
+import jqueryI18next from "jquery-i18next";
 import i18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import i18nextXHRBackend from "i18next-xhr-backend";
 import i18nextChainedBackend from "i18next-chained-backend";
 import i18nextLocalStorageBackend from "i18next-localstorage-backend";
+import Mustache from "mustache";
 
 /** You need to add your language code and label here for the selector to work*/
 const LOCALES_OPTIONS = [{ code: "en", label: "English" }].sort(

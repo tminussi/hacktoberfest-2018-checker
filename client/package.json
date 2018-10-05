@@ -14,7 +14,6 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "@babel/preset-es2015": "^7.0.0-beta.53",
     "babel-loader": "^8.0.4",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
@@ -30,9 +29,13 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "i18next": "^11.9.0",
     "i18next-browser-languagedetector": "^2.2.3",
     "i18next-chained-backend": "^0.1.2",
     "i18next-localstorage-backend": "^1.1.4",
-    "i18next-xhr-backend": "^1.5.1"
+    "i18next-xhr-backend": "^1.5.1",
+    "jquery": "^3.3.1",
+    "jquery-i18next": "^1.2.1",
+    "mustache": "^3.0.0"
   }
 }
