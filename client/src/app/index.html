@@ -1,69 +1,38 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="index.css">
+    <title>web</title>
+  </head>
 
-  <title>web</title>
-</head>
-
-<body>
-  <div id="loader-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  <body>
+    <div id="loader-wrapper">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div>
-  </div>
-  <header class="header">
-    <nav class="top-nav">
-      <div id="language-selector" class="language-selector"></div>
-    </nav>
-  </header>
-
-  <div class="headline">
-  </div>
-  <div class="container">
-    <div class="element-group">
-      <div class="element-userinput">
-        <label for="username" data-i18n="label.username"></label>
-        <input id="username" type="text" />
+    <div class="headline"></div>
+    <div class="container">
+      <div class="element-group">
+        <div class="element-userinput">
+          <label for="username">Username</label>
+          <input id="username" type="text" />
+        </div>
+        <button id="do-req" type="button">Submit</button>
       </div>
-      <button id="do-req" type="button" data-i18n="button.submit-req"></button>
     </div>
-  </div>
-  <div id="response" class="response"></div>
-</body>
+    <div id="response" class="response"></div>
+  </body>
 
-<script id="selector-template" type="x-tmpl-mustache">
-    <div class="select">
-        <select class="select-text" id="locales" required>
-          <option value="" disabled selected></option>
-          {{#languageOpts}}
-            <option value="{{code}}">{{label}}</option>
-          {{/languageOpts}}
-        </select>
-        <span class="select-highlight"></span>
-        <span class="select-bar"></span>
-        <label class="select-label" data-i18n="lng_select.label"></label>
-      </div>
-</script>
-
-<script id="template" type="x-tmpl-mustache">
+  <script id="template" type="x-tmpl-mustache">
     <div class="center">
-      <img src="{{userPhoto}}" data-i18n="[alt]img.profile-alt"></img>
+      <img src="{{userPhoto}}" alt="User photo"></img>
     </div>
-
 
     <div class="center">
       <div>
@@ -83,15 +52,15 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col" data-i18n="th.status"></th>
-              <th scope="col" data-i18n="th.link"></th>
+              <th scope="col">Status</th>
+              <th scope="col">Link</th>
             </tr>
           </thead>
           <tbody>
            {{#prs}}
             <tr class="response-data">
               <td scope="row">{{index}}</td>
-              <td class="capitalize">{{prState}}</td>
+              <td class="capitalize">{{state}}</td>
               <td><a target="_blank" href="{{url}}">{{url}}</a></td>
             {{/prs}}
             </tr>
@@ -101,5 +70,4 @@
     </div>
     {{/prCount}}
   </script>
-
 </html>
