@@ -10,7 +10,8 @@ i18n.init({
   whitelist: ["en"],
   nonExplicitWhitelist: true,
   resources: {
-    en
+    en,
+    fr
   }
 });
 

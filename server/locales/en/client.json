@@ -1,8 +1,9 @@
 {
   "alert_message": "Type something !",
   "request_error": "Oops, something went wrong!",
-  "label": {
-    "username": "Username"
+  "userinput": {
+    "username": "Username",
+    "placeholder": "Enter a username..."
   },
   "button": {
     "submit-req": "Submit"
