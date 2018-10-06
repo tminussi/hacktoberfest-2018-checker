@@ -1,0 +1,25 @@
+{
+  "alert_message": "Entrez un truc !",
+  "request_error": "Oups, une erreur s'est produite!",
+  "userinput": {
+    "username": "Nom d'utilisateur",
+    "placeholder": "Entrez un nom d'utilisateur..."
+  },
+  "button": {
+    "submit-req": "Rechercher"
+  },
+  "th": {
+    "status": "Statut",
+    "link": "Lien"
+  },
+  "pr_state": {
+    "open": "Ouverte",
+    "closed": "Fermée"
+  },
+  "img": {
+    "profile-alt": "Photo de l'utilisateur"
+  },
+  "lng_select": {
+    "label": "Changer la langue"
+  }
+}
