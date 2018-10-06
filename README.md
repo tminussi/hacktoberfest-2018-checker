@@ -49,6 +49,26 @@ _Currently, `coverage` is only for `server` folder._
 If you want to build a static version of the client, you can run **npm run build:prod**
 You can see the page in **http://localhost:8080/**
 
+### Integration Testing
+
+For integration testing, [Cypress](https://www.cypress.io/) has been used. Following test cases have been taken care of:
+
+* When an error occurs,
+[x] Loader is not visible.
+[x] A proper error message is displayed.
+
+* For suggestions of more test cases/scenarios, please update [Issue number 31](https://github.com/tminussi/hacktoberfest-2018-checker/issues/31) 
+
+Instructions to start the Cypress server:
+
+* Please ensure that your backend server is running using the command **npm run local** in **server** directory(refer to 'How to run' section).
+* Also, ensure that the dev server is running in the **client** directory (refer to 'Frontend' section) - i.e., you are able to access **index.html** at your [localhost:8080](http://localhost:8080)
+
+Now, in the root directory, which contains the client and server directories, run the following commands:
+
+* **npm i** - (first time only, this installs cypress)
+* **npm run cypress** - this opens up the cypress application. Click on error_spec.js to run the associated test.
+
 ## Contributing
 
 Take a look at the [CONTRIBUTING.md](https://github.com/tminussi/hacktoberfest-2018-checker/blob/master/CONTRIBUTING.md) file for any questions that may arise. You're also free to update that file as needed!

@@ -1,0 +1,12 @@
+{
+  "message": "Validation Failed",
+  "errors": [
+    {
+      "message": "The listed users cannot be searched either because the users do not exist or you do not have permission to view the users.",
+      "resource": "Search",
+      "field": "q",
+      "code": "invalid"
+    }
+  ],
+  "documentation_url": "https://developer.github.com/v3/search/"
+}
