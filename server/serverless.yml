@@ -12,7 +12,7 @@ functions:
     timeout: 3
 
     events:
-      - http: 
+      - http:
           path: /
           method: GET
           cors: true
@@ -20,3 +20,18 @@ functions:
             parameters:
               querystrings:
                 username: true
+                lng: true
+
+  locale:
+    handler: handler.locale
+    timeout: 3
+
+    events:
+      - http:
+          path: /locale/{lng}
+          method: GET
+          cors: true
+          request:
+            parameters:
+              paths:
+                lng: true
