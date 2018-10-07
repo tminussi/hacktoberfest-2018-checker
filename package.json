@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "bootstrap": "npm i; cd client; npm i; cd ../server; npm i;",
+    "dev": "concurrently --kill-others \"cd server; npm run local\" \" cd client; npm run start:dev\""
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/tminussi/hacktoberfest-2018-checker#readme",
   "devDependencies": {
+    "concurrently": "^4.0.1",
     "cypress": "^3.1.0"
   }
 }

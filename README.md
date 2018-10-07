@@ -12,9 +12,9 @@ Feel free to create a pull request to help improve this project.
 
 ## How to run
 
-1. Navigate to the **server** directory of the project and run **npm install** in your command prompt
-2. After node packages is downloaded, then run command **npm run local**
-3. Navigate to the **client** directory of the project and open the **index.html** file in your web browser
+1. Run **npm run bootstrap** - this commands installs node_modules in the root, client and the server directory.
+2. Run **npm run dev** - this commands ups the serverless setup in server directory and concurrently, ups the webpack-express-server in the client directory.
+3. Open [http://localhost:8080](http://localhost:8080) in a web browser to start using the app.
 
 ## Other features
 
@@ -23,10 +23,10 @@ Feel free to create a pull request to help improve this project.
 - If you are someone who prefers the CLI, run:
 
 ```
-$: npm run local -- --port 5000 # optionally on a diffrent port
+$: npm run local -- --port 5000 # optionally on a different port
 ```
 
-By default, this starts the server on port 3000. If you prefer
+By default, this starts the (backend) server on port 3000. If you prefer
 to change it you can, by passing `--port 3001` and also remember to update
 the port address in `index.js` which is in the frontend `client` folder.
 
@@ -53,20 +53,16 @@ You can see the page in **http://localhost:8080/**
 
 For integration testing, [Cypress](https://www.cypress.io/) has been used. Following test cases have been taken care of:
 
-* When an error occurs,
-[x] Loader is not visible.
-[x] A proper error message is displayed.
+* When an error occurs,  
+[x] Loader is not visible.  
+[x] A proper error message is displayed.  
 
 * For suggestions of more test cases/scenarios, please update [Issue number 31](https://github.com/tminussi/hacktoberfest-2018-checker/issues/31) 
 
 Instructions to start the Cypress server:
 
-* Please ensure that your backend server is running using the command **npm run local** in **server** directory(refer to 'How to run' section).
-* Also, ensure that the dev server is running in the **client** directory (refer to 'Frontend' section) - i.e., you are able to access **index.html** at your [localhost:8080](http://localhost:8080)
-
-Now, in the root directory, which contains the client and server directories, run the following commands:
-
-* **npm i** - (first time only, this installs cypress)
+* **npm run bootstrap** - (If you have already ran this command before, you don't need to run this again).
+* **npm run dev** - This ups the frontend and backend server.
 * **npm run cypress** - this opens up the cypress application. Click on error_spec.js to run the associated test.
 
 ## Contributing
