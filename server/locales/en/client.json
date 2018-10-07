@@ -1,0 +1,25 @@
+{
+  "alert_message": "Type something !",
+  "request_error": "Oops, something went wrong!",
+  "userinput": {
+    "username": "Username",
+    "placeholder": "Enter a username..."
+  },
+  "button": {
+    "submit-req": "Submit"
+  },
+  "th": {
+    "status": "Status",
+    "link": "Link"
+  },
+  "pr_state": {
+    "open": "Open",
+    "closed": "Closed"
+  },
+  "img": {
+    "profile-alt": "User photo"
+  },
+  "lng_select": {
+    "label": "Change language"
+  }
+}

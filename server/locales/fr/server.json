@@ -1,0 +1,8 @@
+{
+  "common": {
+    "no_pull_requests": "Vous n'avez pas encore créé de Pull Request ! Apportez votre contribution à la Communauté Open Source et gagnez un T-Shirt à 5 PRs",
+    "keep_it_up": "Bien joué ! La Communauté Open Source vous est déjà reconnaissante, mais vous pouvez faire plus ! Ne lâchez pas l'affaire !",
+    "almost_there": "Vous y êtes presque ! Plus qu'une PR et vous pourrez porter une des T-Shirt les plus cool EVER",
+    "congratulations": "Vous l'avez fait ! Bravo ! Il est maintenant temps de se reposer et d'attendre un T-Shirt bien mérité !"
+  }
+}
