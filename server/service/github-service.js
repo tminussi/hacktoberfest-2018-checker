@@ -9,42 +9,68 @@ const fetchPullRequestsOfUser = (username) => {
                 'User-Agent': 'tminussi'
             }
         }, (err, data, body) => {
-            if (data.statusCode >= 400) {
-                return reject({
-                    statusCode: data.statusCode,
-                    body: JSON.parse(body)
-                });
-            }
-            const jsonBody = JSON.parse(body);
-            if (!jsonBody.items.length) {
-                return resolve({
-                    valid_pull_requests_amount: 0
-                });
-            }
-            const validPullRequests = jsonBody.items
-            .filter(item => new Date(item.created_at).getTime() > new Date('2018-10-01T00:00:00Z').getTime())
-            .filter(item => new Date(item.created_at).getTime() < new Date('2018-11-01T00:00:00Z').getTime())
-            if (validPullRequests.length) {
-                return resolve({
-                    valid_pull_requests_amount: validPullRequests.length,
-                    avatar: validPullRequests[0].user.avatar_url,
-                    pull_requests: validPullRequests.map(item => {
-                        return {
-                            url: item.html_url,
-                            state: item.state
-                        }
-                    }),
-                    message: createMessageByPullrequestQuantity(validPullRequests.length)
-                });
-            }
-            return resolve({
-                valid_pull_requests_amount: 0,
-                avatar: jsonBody.items[0].user.avatar_url,
-                message: createMessageByPullrequestQuantity(0)
-            });
+            if (responseContainsClientOrServerError(data.statusCode)) {
+                const response = createErrorResponse(data.statusCode, body);
+                return reject(response);
+            } else {
+                const jsonBody = JSON.parse(body);
+                const validPullRequests = getValidPullRequestsFromResponseBody(jsonBody);
+                let response = null;
 
+                if (validPullRequests.length) {
+                    response = createValidPullRequestsResponse(validPullRequests);
+                } else if (!jsonBody.items.length) {
+                    response = createNoPullRequestsResponse();
+                } else {
+                    response = createNoValidPullRequestsResponse(jsonBody);
+                }
+                return resolve(response);
+            }
         });
     });
+}
+
+const responseContainsClientOrServerError = (statusCode) => statusCode >= 400;
+
+const createErrorResponse = (statusCode, body) => {
+    return {
+        statusCode: statusCode,
+        body: JSON.parse(body)
+    };
+}
+
+const createNoPullRequestsResponse = () => {
+    return {
+        valid_pull_requests_amount: 0
+    };
+}
+
+const createValidPullRequestsResponse = (validPullRequests) => {
+    return {
+        valid_pull_requests_amount: validPullRequests.length,
+        avatar: validPullRequests[0].user.avatar_url,
+        pull_requests: validPullRequests.map(item => {
+            return {
+                url: item.html_url,
+                state: item.state
+            }
+        }),
+        message: createMessageByPullrequestQuantity(validPullRequests.length)
+    };
+}
+
+const getValidPullRequestsFromResponseBody = (responseBody) => {
+    return responseBody.items
+        .filter(item => new Date(item.created_at).getTime() > new Date('2018-10-01T00:00:00Z').getTime())
+        .filter(item => new Date(item.created_at).getTime() < new Date('2018-11-01T00:00:00Z').getTime());
+}
+
+const createNoValidPullRequestsResponse = (jsonBody) => {
+    return {
+        valid_pull_requests_amount: 0,
+        avatar: jsonBody.items[0].user.avatar_url,
+        message: createMessageByPullrequestQuantity(0)
+    };
 }
 
 const createMessageByPullrequestQuantity = (quantity) => {
