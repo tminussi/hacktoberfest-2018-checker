@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>26/26</span>
+        <span class='fraction'>25/25</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/26</span>
+        <span class='fraction'>25/25</span>
       </div>
     </div>
   </div>
@@ -108,25 +108,11 @@
 63
 64
 65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+66</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,16 +132,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,89 +173,78 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const request = require("request");
-const i18n = require("../locales");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const request = require('request');
 &nbsp;
-const fetchPullRequests = username =&gt; {
-  return new Promise((resolve, reject) =&gt; {
-    request.get(
-      {
-        url: `https://api.github.com/search/issues?q=author:${username}+type:pr`,
-        headers: {
-          Accept: "application/vnd.github.cloak-preview",
-          "User-Agent": "tminussi"
-        }
-      },
-      (err, data, body) =&gt; {
-        if (data.statusCode &gt;= 400) {
-          return reject({
-            statusCode: data.statusCode,
-            body: JSON.parse(body)
-          });
-        }
-        const jsonBody = JSON.parse(body);
-        if (!jsonBody.items.length) {
-          return resolve({
-            valid_pull_requests_amount: 0
-          });
-        }
-        const validPullRequests = jsonBody.items
-          .filter(
-            item =&gt;
-              new Date(item.created_at).getTime() &gt;
-              new Date("2018-10-01T00:00:00Z").getTime()
-          )
-          .filter(
-            item =&gt;
-              new Date(item.created_at).getTime() &lt;
-              new Date("2018-11-01T00:00:00Z").getTime()
-          );
-        if (validPullRequests.length) {
-          return resolve({
-            valid_pull_requests_amount: validPullRequests.length,
-            avatar: validPullRequests[0].user.avatar_url,
-            pull_requests: validPullRequests.map(item =&gt; {
-              return {
-                url: item.html_url,
-                state: item.state
-              };
-            }),
-            message: createMessage(validPullRequests.length)
-          });
-        }
-        return resolve({
-          valid_pull_requests_amount: 0,
-          avatar: jsonBody.items[0].user.avatar_url,
-          message: createMessage(0)
+const fetchPullRequests = (username) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+        request.get({
+            url: `https://api.github.com/search/issues?q=author:${username}+type:pr`,
+            headers: {
+                Accept: 'application/vnd.github.cloak-preview',
+                'User-Agent': 'tminussi'
+            }
+        }, (err, data, body) =&gt; {
+            if (data.statusCode &gt;= 400) {
+                return reject({
+                    statusCode: data.statusCode,
+                    body: JSON.parse(body)
+                });
+            }
+            const jsonBody = JSON.parse(body);
+            if (!jsonBody.items.length) {
+                return resolve({
+                    valid_pull_requests_amount: 0
+                });
+            }
+            const validPullRequests = jsonBody.items
+            .filter(item =&gt; new Date(item.created_at).getTime() &gt; new Date('2018-10-01T00:00:00Z').getTime())
+            .filter(item =&gt; new Date(item.created_at).getTime() &lt; new Date('2018-11-01T00:00:00Z').getTime())
+            if (validPullRequests.length) {
+                return resolve({
+                    valid_pull_requests_amount: validPullRequests.length,
+                    avatar: validPullRequests[0].user.avatar_url,
+                    pull_requests: validPullRequests.map(item =&gt; {
+                        return {
+                            url: item.html_url,
+                            state: item.state
+                        }
+                    }),
+                    message: createMessage(validPullRequests.length)
+                });
+            }
+            return resolve({
+                valid_pull_requests_amount: 0,
+                avatar: jsonBody.items[0].user.avatar_url,
+                message: createMessage(0)
+            });
+&nbsp;
         });
-      }
-    );
-  });
-};
+    });
+}
 &nbsp;
-const createMessage = quantity =&gt; {
-  if (!quantity) {
-    return i18n.t("no_pull_requests");
-  } else if (quantity &gt;= 1 &amp;&amp; quantity &lt;= 3) {
-    return i18n.t("keep_it_up");
-  } else if (quantity === 4) {
-    return i18n.t("almost_there");
-  } else {
-    return i18n.t("congratulations");
-  }
-};
+const createMessage = (quantity) =&gt; {
+    if(!quantity) {
+        return "You haven't created any Pull Requests so far. Start contributing to the Open Source Community and Win a T-Shirt at 5 PRs"
+    } else if (quantity &gt;= 1 &amp;&amp; quantity &lt;= 3) {
+        return "Great job. The Open Source community is already thankful to you, but you can achieve more. Keep it up!"
+    } else if (quantity === 4) {
+        return "You are almost there! One more to go and you will be able to wear one of the coolest T-Shirts out there"
+    } else {
+        return "You did it! Congratulations! Time to rest and wait for your well deserved T-Shirt!"
+    }
+}
 &nbsp;
 module.exports = {
-  fetchPullRequests: fetchPullRequests,
-  createMessage
-};
+    fetchPullRequests: fetchPullRequests,
+    createMessage
+}
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 05 2018 14:27:57 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Oct 21 2018 10:37:15 GMT+0200 (Central European Summer Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
