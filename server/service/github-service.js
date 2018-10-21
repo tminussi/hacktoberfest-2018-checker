@@ -1,6 +1,6 @@
 const request = require('request');
 
-const fetchPullRequests = (username) => {
+const fetchPullRequestsOfUser = (username) => {
     return new Promise((resolve, reject) => {
         request.get({
             url: `https://api.github.com/search/issues?q=author:${username}+type:pr`,
@@ -34,20 +34,20 @@ const fetchPullRequests = (username) => {
                             state: item.state
                         }
                     }),
-                    message: createMessage(validPullRequests.length)
+                    message: createMessageByPullrequestQuantity(validPullRequests.length)
                 });
             }
             return resolve({
                 valid_pull_requests_amount: 0,
                 avatar: jsonBody.items[0].user.avatar_url,
-                message: createMessage(0)
+                message: createMessageByPullrequestQuantity(0)
             });
 
         });
     });
 }
 
-const createMessage = (quantity) => {
+const createMessageByPullrequestQuantity = (quantity) => {
     if(!quantity) {
         return "You haven't created any Pull Requests so far. Start contributing to the Open Source Community and Win a T-Shirt at 5 PRs"
     } else if (quantity >= 1 && quantity <= 3) {
@@ -60,6 +60,5 @@ const createMessage = (quantity) => {
 }
 
 module.exports = {
-    fetchPullRequests: fetchPullRequests,
-    createMessage
+    fetchPullRequestsOfUser, createMessageByPullrequestQuantity
 }
